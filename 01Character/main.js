@@ -23,6 +23,8 @@ window.onload = function () {
      */
     game.onload = function(){
         
+        game.keybind(90, "a");
+        
         //シーンを移動
         gameStage = new GameStage();
         game.pushScene(gameStage);

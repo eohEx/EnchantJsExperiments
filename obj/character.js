@@ -23,8 +23,7 @@ var Bear = enchant.Class.create(enchant.Sprite, {
         
         //タッチ時
         this.addEventListener("touchstart", function() {
-            
-            
+
         });   
     },
     GoRight: function () {
