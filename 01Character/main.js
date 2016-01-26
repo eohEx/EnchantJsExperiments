@@ -16,6 +16,7 @@ window.onload = function () {
     
     //アセットのプリロード
     game.preload("../img/chara1.png");
+    game.preload("../img/map2.png");
     
     /*
      *ゲーム開始時の処理
@@ -31,7 +32,5 @@ window.onload = function () {
     }
     
     //ゲーム開始
-    game.start();
-    
-    
+    game.start(); 
 }

@@ -2,18 +2,27 @@ var GameStage = enchant.Class.create(enchant.Scene, {
     
     initialize: function()
     {
-        //初期化
+        // 初期化
         enchant.Scene.call(this);
         
-        //キャラ
-        bear = new Bear(100, 100); //生成
-        bear.speed = 10;           //移動スピード
-        this.addChild(bear);       //表示
+        // キャラ
+        bear = new Bear(100, 100); // 生成
+        bear.speed = 10;           // 移動スピード
+        this.addChild(bear);       // 表示
         
-        //フレーム遷移
+        // マップ
+        map = new StageObject(0, 0);
+        this.addChild(map);
+        
+        // フレーム遷移
         this.addEventListener(Event.ENTER_FRAME, function () {
-
-            //右ボタン押下
+            
+            // マップの衝突判定
+            if(map.hitTest(bear.x, bear.y) === true){
+                return;
+            }
+            
+            // 右ボタン押下
             if(game.input.right) {
                 bear.GoRight();
             }
@@ -28,12 +37,12 @@ var GameStage = enchant.Class.create(enchant.Scene, {
                 bear.GoUp();
             }
             
-            //下ボタン押下
+            // 下ボタン押下
             if(game.input.down) {
                 bear.GoDown();
             }
             
-            //Aボタン押下
+            // Aボタン押下
             if(game.input.a) {
                 bear.GoDown();
             }
